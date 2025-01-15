@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // Check if the user is logged in
+        if (!localStorage.getItem('loggedIn')) {
+          // Redirect to login page if not logged in
+          window.location.href = 'login.html';
+        }
+      </script>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Disaster Management</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="/js/script.js" defer></script>
+    <script src="/js/login.js" defer></script>
+    <script src="/js/alerts.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<div class="logout-container">
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>  
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Smart Disaster<span> Management</span></div>
+        </nav>
+    </header>
+    <div class="nav-links">
+        <ul>
+            <li><a href="#live-updates">Live Updates</a></li>
+            <li><a href="#report-disaster">Report</a></li>
+            <li><a href="#learn">Learn</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/html/dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="/html/alerts.html">Disaster Alerts</a></li>
+            <li><a href="/html/resources.html">Resources</a></li>
+            <li><a href="/html/profile.html">Profile</a></li>
+        </ul>
+    </nav>
+</body>
+                   
+    </header>
+    <main>
+        <!-- Dynamic Landing Page -->
+        <section class="landing-page" id="home">
+            <div class="landing-content">
+                <h1 class="mission">Empowering Communities for a Safer Tomorrow</h1>
+                <p class="tagline">Real-time updates, resources, and reporting for smarter disaster management.</p>
+            </div>
+            <div class="landing-animation">
+                <!-- Placeholder for GSAP-powered animations -->
+            </div>
+            <div class="card">
+                <h2>Real-Time Disaster Alerts</h2>
+                <div id="alerts">
+                  <p>Loading disaster alerts...</p>
+                </div>
+                <button onclick="fetchAlerts()">Refresh Alerts</button>
+                <div class="card">
+                    <h2>Statistics</h2>
+                    <canvas id="disasterChart" width="400" height="400"></canvas>
+                    <button onclick="updateChart()">Refresh Data</button>
+                  </div>                  
+              </div>                           
+        </section>
+        <!-- Live Disaster Updates -->                   
+        <section id="live-updates">
+            <h2>Live Disaster Updates</h2>
+            <div id="map-container">
+                <!-- Live Map/Dashboard Integration -->
+                <div id="map"></div>
+            </div>
+            <div id="filters">
+                <label for="disaster-type">Type:</label>
+                <select id="disaster-type">
+                    <option value="all">All</option>
+                    <option value="earthquake">Earthquake</option>
+                    <option value="flood">Flood</option>
+                    <option value="wildfire">Wildfire</option>
+                    <option value="eruption">Eruption</option>
+                    <option value="thunder storm">Thunder Storm</option>
+                    <!-- Add other disaster types -->
+                </select>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" placeholder="Enter location">
+                <label for="severity">Severity:</label>
+                <select id="severity">
+                    <option value="all">All</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+
+                <button id="apply-filters">Apply Filters</button>
+            </div>
+        </section>
+
+        <!-- Disaster Reporting -->
+        <section id="report-disaster">
+            <h2>Report a Disaster</h2>
+            <form id="disaster-report-form">
+                <label for="disaster-type-report">Disaster Type:</label>
+                <select id="disaster-type-report">
+                    <option value="earthquake">Earthquake</option>
+                    <option value="flood">Flood</option>
+                    <option value="wildfire">Wildfire</option>
+                    <option value="eruption">Eruption</option>
+                    <option value="thunder storm">Thunder Storm</option>
+                    <!-- Add other disaster types -->
+                </select>
+
+                <label for="description">Description:</label>
+                <textarea id="description" placeholder="Provide a detailed description..."></textarea>
+
+                <label for="upload">Upload Media:</label>
+                <input type="file" id="upload" multiple>
+
+                <label for="location-report">Location:</label>
+                <input type="text" id="location-report" placeholder="Geolocation or address">
+
+                <button type="submit">Submit Report</button>
+            </form>
+        </section>
+
+        <!-- Educational Section -->
+        <section id="education">
+            <h2>Learn About Disasters</h2>
+            <div class="disaster-types">
+                <!-- Educational Content Placeholder -->
+                <div class="disaster-card">Earthquake</div>
+                <div class="disaster-card">Flood</div>
+                <div class="disaster-card">Wildfire</div>
+                <div class="disaster-card">Eruption</div>
+                <div class="disaster-card">Thunder Storm</div>
+                <!-- Add more cards dynamically -->
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section id="resources">
+            <h2>Community Resources</h2>
+            <ul>
+                <li><a href="#">Emergency Contacts</a></li>
+                <li><a href="#">Evacuation Plans</a></li>
+                <li><a href="#">Discussion Forums</a></li>
+                <li><a href="#">Preparedness Guides</a></li>
+            </ul>
+        </section>
+
+        <!-- Contact and Feedback -->
+        <section id="contact">
+            <h2>Contact & Feedback</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Your Name">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Your Email">
+
+                <label for="message">Message:</label>
+                <textarea id="message" placeholder="Your Message"></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Smart Disaster Management. All rights reserved.</p>
+    </footer>
+</body>
+</html>

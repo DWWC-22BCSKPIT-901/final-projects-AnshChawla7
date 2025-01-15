@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    // Check if the user is logged in
+    if (!localStorage.getItem('loggedIn')) {
+      // Redirect to login page if not logged in
+      window.location.href = 'login.html';
+    }
+  </script>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Disaster Management - Dashboard</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Smart Disaster Management</div>
+    <nav>
+      <ul>
+        <li><a href="/html/dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="/html/alerts.html" >Disaster Alerts</a></li>
+        <li><a href="/html/resources.html">Resources</a></li>
+        <li><a href="/html/profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <h1>Welcome to the Dashboard</h1>
+    <div class="data-cards">
+      <div class="card">
+        <h2>Real-Time Disaster Alerts</h2>
+        <p>Live updates and notifications about ongoing disasters.</p>
+        <button>View Alerts</button>
+      </div>
+      <div class="card">
+        <h2>Statistics</h2>
+        <p>Placeholder for charts showing disaster statistics.</p>
+        <button>View Statistics</button>
+      </div>
+      <div class="card">
+        <h2>Emergency Contacts</h2>
+        <p>Quick access to important emergency numbers.</p>
+        <button>View Contacts</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

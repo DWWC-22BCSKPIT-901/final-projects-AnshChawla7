@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    // Check if the user is logged in
+    if (!localStorage.getItem('loggedIn')) {
+      // Redirect to login page if not logged in
+      window.location.href = 'login.html';
+    }
+  </script>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Disaster Management - Resources</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Smart Disaster Management</div>
+    <nav>
+      <ul>
+        <li><a href="/html/dashboard.html">Dashboard</a></li>
+        <li><a href="/html/alerts.html">Disaster Alerts</a></li>
+        <li><a href="/html/resources.html" class="active">Resources</a></li>
+        <li><a href="/html/profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="resources">
+    <h1>Emergency Resources</h1>
+
+    <!-- Emergency Contacts Section -->
+    <section class="resource-section">
+      <h2>Emergency Contact Numbers</h2>
+      <ul>
+        <li><strong>Police:</strong> 100</li>
+        <li><strong>Fire Department:</strong> 101</li>
+        <li><strong>Ambulance:</strong> 102</li>
+        <li><strong>Disaster Helpline:</strong> 108</li>
+      </ul>
+    </section>
+
+    <!-- Preparedness Guides Section -->
+    <section class="resource-section">
+      <h2>Disaster Preparedness Guides</h2>
+      <ul>
+        <li><a href="#" download>Flood Preparedness Guide</a></li>
+        <li><a href="#" download>Earthquake Safety Tips</a></li>
+        <li><a href="#" download>Storm Survival Manual</a></li>
+      </ul>
+    </section>
+
+    <!-- Distribution Points Section -->
+    <section class="resource-section">
+      <h2>Resource Distribution Points</h2>
+      <ul>
+        <li><strong>Relief Shelter A:</strong> 123 Main Street</li>
+        <li><strong>Relief Shelter B:</strong> 456 Elm Street</li>
+        <li><strong>Food Supply Point:</strong> 789 Pine Avenue</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
